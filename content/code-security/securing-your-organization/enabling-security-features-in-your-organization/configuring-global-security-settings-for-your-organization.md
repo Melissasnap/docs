@@ -59,7 +59,7 @@ You can allow {% data variables.product.prodname_dependabot %} to use {% data va
 
 ### Granting {% data variables.product.prodname_dependabot %} access to private {% ifversion ghec or ghes %}and internal {% endif %}repositories
 
-To update private dependencies of repositories in your organization, {% data variables.product.prodname_dependabot %} needs access to those repositories. To grant {% data variables.product.prodname_dependabot %} access to the desired private {% ifversion ghec or ghes %}or internal {% endif %}repository, scroll down to the "Grant {% data variables.product.prodname_dependabot %} access to private repositories" section, then use the search bar to find and select the desired repository. Be aware that granting {% data variables.product.prodname_dependabot %} access to a repository means all users in your organization will have access to the contents of that repository through {% data variables.product.prodname_dependabot_updates %}. For more information about the supported ecosystems for private repositories, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#supported-repositories-and-ecosystems)."
+To update private dependencies of repositories in your organization, {% data variables.product.prodname_dependabot %} needs access to those repositories. To grant {% data variables.product.prodname_dependabot %} access to the desired private {% ifversion ghec or ghes %}or internal {% endif %}repository, scroll down to the "Grant {% data variables.product.prodname_dependabot %} access to private repositories" section, then use the search bar to find and select the desired repository. Be aware that granting {% data variables.product.prodname_dependabot %} access to a repository means all users in your organization will have access to the contents of that repository through {% data variables.product.prodname_dependabot_updates %}. For more information about the supported ecosystems for private repositories, see "[AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories)."
 
 ## Configuring global {% data variables.product.prodname_code_scanning %} settings
 
@@ -68,7 +68,7 @@ To update private dependencies of repositories in your organization, {% data var
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_code_scanning %}:
 
 * [Recommending the extended query suite for default setup](#recommending-the-extended-query-suite-for-default-setup){% ifversion code-scanning-autofix %}
-* [Enabling autofix for {% data variables.product.prodname_codeql %}](#enabling-autofix-for-codeql) {% endif %}
+* [Enabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_codeql %}](#enabling-copilot-autofix-for-codeql) {% endif %}
 * [Setting a failure threshold for {% data variables.product.prodname_code_scanning %} checks in pull requests](#setting-a-failure-threshold-for-code-scanning-checks-in-pull-requests)
 
 ### Recommending the extended query suite for default setup
@@ -77,9 +77,9 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 
 {% ifversion code-scanning-autofix %}
 
-### Enabling autofix for {% data variables.product.prodname_codeql %}
+### Enabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_codeql %}
 
-You can select **Autofix for {% data variables.product.prodname_codeql %}** to enable autofix for all the repositories in your organization that use {% data variables.product.prodname_codeql %} default setup or {% data variables.product.prodname_codeql %} advanced setup. Autofix is a {% data variables.product.prodname_copilot %}-powered expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+You can select **{% data variables.product.prodname_copilot_autofix_short %}** to enable {% data variables.product.prodname_copilot_autofix_short %} for all the repositories in your organization that use {% data variables.product.prodname_codeql %} default setup or {% data variables.product.prodname_codeql %} advanced setup. {% data variables.product.prodname_copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
 
 {% endif %}
 
@@ -93,13 +93,13 @@ You can choose the severity levels at which {% data variables.product.prodname_c
 
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_secret_scanning %}:
 
-{% ifversion secret-scanning-non-provider-patterns %}
+{% ifversion ghes < 3.15 %}
 * [Scanning for non-provider patterns](#scanning-for-non-provider-patterns){% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
 * [Generic secret detection](#generic-secret-detection){% endif %}
 * [Adding a resource link for blocked commits](#adding-a-resource-link-for-blocked-commits){% ifversion ghec or ghes %}
 * [Defining custom patterns](#defining-custom-patterns){% endif %}
 
-{% ifversion secret-scanning-non-provider-patterns %}
+{% ifversion ghes < 3.15 %}
 
 ### Scanning for non-provider patterns
 
